@@ -1,0 +1,215 @@
+version: "3.1"
+
+intents:
+  - greet
+  - start_onboarding
+  - inform
+  - out_of_scope
+
+entities:
+  - crop
+  - seed_type
+  - soil
+  - district
+  - season
+  - state
+  - sw_date
+
+slots:
+  crop:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: crop
+      - type: from_text
+        conditions:
+          - active_loop: crop_onboarding_form
+            requested_slot: crop
+
+  seed_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: seed_type
+      - type: from_text
+        conditions:
+          - active_loop: crop_onboarding_form
+            requested_slot: seed_type
+
+  soil:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: soil
+      - type: from_text
+        conditions:
+          - active_loop: crop_onboarding_form
+            requested_slot: soil
+
+  state:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: state
+      - type: from_text
+        conditions:
+          - active_loop: crop_onboarding_form
+            requested_slot: state
+
+  district:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: district
+      - type: from_text
+        conditions:
+          - active_loop: crop_onboarding_form
+            requested_slot: district
+
+  season:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: season
+      - type: from_text
+        conditions:
+          - active_loop: crop_onboarding_form
+            requested_slot: season
+
+  sw_date:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: sw_date
+      - type: from_text
+        conditions:
+          - active_loop: crop_onboarding_form
+            requested_slot: sw_date
+
+  user_id:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: crop_onboarding_form
+            requested_slot: user_id
+
+  # set by actions
+  planner_response:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  storage_response:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  report_key:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  report_id:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  forecast_response:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  forecasted_file:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  reset_response:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  risk_response:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+  final_report:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+forms:
+  crop_onboarding_form:
+    required_slots:
+      - crop
+      - seed_type
+      - soil
+      - state
+      - district
+      - season
+      - sw_date
+      - user_id
+
+actions:
+  - action_call_crop_planner
+  - action_call_forecast
+  - action_call_risk 
+  - action_store_final_data
+
+responses:
+  utter_greet:
+    - text: "Welcome! I am FasalSaathi! I'll collect your crop details."
+
+  utter_onboarding_started:
+    - text: "Great—let’s collect your details."
+
+  utter_ask_crop:
+    - text: "Which crop? (e.g., Wheat, Maize, Rice)"
+  utter_ask_seed_type:
+    - text: "Which seed type/variety are you using?"
+  utter_ask_soil:
+    - text: "What's the soil type? (e.g., Clay, Loam, Sandy, Black)"
+  utter_ask_state:
+    - text: "Which state are you in?"
+  utter_ask_district:
+    - text: "Which district?"
+  utter_ask_season:
+    - text: "Which season is this for? (Kharif/Rabi/Zaid)"
+  utter_ask_sw_date:
+    - text: "What is the sowing date? (YYYY-MM-DD)"
+  utter_ask_user_id:
+    - text: "Please share your user ID so I can save the plan to your profile."
+
+  utter_summary:
+    - text: |
+        ✅ Thanks! Here is what I captured:
+        • Crop: {crop}
+        • Seed Type: {seed_type}
+        • Soil: {soil}
+        • State: {state}
+        • District: {district}
+        • Season: {season}
+        • Sowing Date: {sw_date}
+        • User ID: {user_id}
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false

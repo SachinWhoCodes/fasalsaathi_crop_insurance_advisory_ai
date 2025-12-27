@@ -1,0 +1,28 @@
+version: "3.1"
+
+rules:
+  - rule: Start form via explicit intent
+    steps:
+      - intent: start_onboarding
+      - action: utter_onboarding_started
+      - action: crop_onboarding_form
+      - active_loop: crop_onboarding_form
+
+  - rule: Start form on greet (optional)
+    steps:
+      - intent: greet
+      - action: utter_onboarding_started
+      - action: crop_onboarding_form
+      - active_loop: crop_onboarding_form
+
+  - rule: Submit form and print summary
+    condition:
+      - active_loop: crop_onboarding_form
+    steps:
+      - action: crop_onboarding_form
+      - active_loop: null
+      - action: utter_summary
+      - action: action_call_crop_planner
+      - action: action_call_forecast
+      - action: action_call_risk
+      - action: action_store_final_data

@@ -1,0 +1,328 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hi
+      - hello
+      - hey
+      - namaste
+
+  - intent: start_onboarding
+    examples: |
+      - start onboarding
+      - I want to create a crop report
+      - begin the process
+      - let's start
+
+  - intent: inform
+    examples: |
+      - [Wheat](crop)
+      - [Rice](crop)
+      - [Maize](crop)
+      - [Soybean](crop)
+      - [Sugarcane](crop)
+      - [Cotton](crop)
+      - [Mustard](crop)
+      - [Gram](crop)
+      - [Barley](crop)
+      - [Millet](crop)
+      - [Groundnut](crop)
+      - [Potato](crop)
+      - [Onion](crop)
+      - [Lentil](crop)
+      - [Jowar](crop)
+      - [Bajra](crop)
+      - [Tur](crop)
+      - [Moong](crop)
+      - seed [PBW-343](seed_type)
+      - variety [HYV-123](seed_type)
+      - [Pusa-Basmati-1509](seed_type)
+      - [HD-2967](seed_type)
+      - [JK-502](seed_type)
+      - seed type is [Kalyan Sona](seed_type)
+      - [Ankur-3028](seed_type)
+      - [Pioneer-45S46](seed_type)
+      - [Loam](soil)
+      - [Black](soil) soil
+      - soil is [Alluvial](soil)
+      - [Red](soil)
+      - [Sandy](soil)
+      - the soil type is [Clayey](soil)
+      - [Laterite](soil) soil
+      - [Saline](soil)
+      - state [Madhya Pradesh](state)
+      - I'm in [Maharashtra](state)
+      - [Punjab](state)
+      - from [Uttar Pradesh](state)
+      - the state is [Rajasthan](state)
+      - [Haryana](state)
+      - [Gujarat](state)
+      - [Karnataka](state)
+      - [West Bengal](state)
+      - [Bihar](state)
+      - district [Indore](district)
+      - [Gwalior](district)
+      - [Ludhiana](district)
+      - my district is [Pune](district)
+      - [Jaipur](district)
+      - [Hisar](district)
+      - [Nagpur](district)
+      - from [Bhopal](district)
+      - [Kanpur](district)
+      - [Patna](district)
+      - season [Kharif](season)
+      - [Rabi](season)
+      - it is [Zaid](season) season
+      - [Rabi](season) season
+      - for [Kharif](season)
+      - date [2025-11-05](sowing_date)
+      - sowing [10/10/2025](sowing_date)
+      - planted on [15th of June 2025](sowing_date)
+      - [July 1st](sowing_date)
+      - on [2025-12-01](sowing_date)
+      - [last week](sowing_date)
+      - [yesterday](sowing_date)
+      - will sow [next month](sowing_date)
+      - about [a month ago](sowing_date)
+      - sown [two weeks back](sowing_date)
+      - planning for [this December](sowing_date)
+      - around [Diwali](sowing_date)
+      - [early November](sowing_date)
+      - [mid-July](sowing_date)
+      - [late October](sowing_date)
+      - I am planting [Wheat](crop) for the [Rabi](season)
+      - The crop is [Rice](crop) in the [Kharif](season)
+      - We grow [Soybean](crop) in [Madhya Pradesh](state)
+      - [Cotton](crop) grows in [Black](soil) soil
+      - My crop is [Maize](crop) and I sowed it [last month](sowing_date)
+      - The seed is [PBW-343](seed_type) for [Wheat](crop)
+      - My farm is in [Jaipur](district), [Rajasthan](state)
+      - District is [Pune](district) and the state is [Maharashtra](state)
+      - It's [Rabi](season) in [Punjab](state)
+      - Sowing was done on [November 5th](sowing_date) for [Gram](crop)
+      - I have [Loam](soil) soil in [Hisar](district)
+      - Growing [Mustard](crop) in [Sandy](soil) soil
+      - [Sugarcane](crop) was planted [around 3 weeks ago](sowing_date)
+      - It's [Jowar](crop) in the [Kharif](season)
+      - My location is [Bengaluru](district), [Karnataka](state)
+      - The soil is [Alluvial](soil) in [Uttar Pradesh](state)
+      - Variety [HD-2967](seed_type) for my [Wheat](crop)
+      - Planted [Potato](crop) in [late October](sowing_date)
+      - [Bajra](crop) for [Kharif](season)
+      - [Indore](district) is in [Madhya Pradesh](state)
+      - I have [Clayey](soil) soil for my [Sugarcane](crop)
+      - I will plant [Moong](crop) during the [Zaid](season)
+      - I'm from [Latur](district) and I grow [Soybean](crop)
+      - The state is [Gujarat](state) and the soil is [Black](soil)
+      - Sowing for [Rabi](season) was completed [last week](sowing_date)
+      - The crop is [Groundnut](crop) and soil is [Sandy](soil)
+      - I use [JK-502](seed_type) seeds for [Maize](crop)
+      - My district is [Guntur](district) in [Andhra Pradesh](state)
+      - The season is [Kharif](season) and I planted [Paddy](crop)
+      - [Barley](crop) will be sown in [November](sowing_date)
+      - I am in [West Bengal](state) growing [Jute](crop)
+      - My soil is [Red](soil) in [Karnataka](state)
+      - I planted [Lentil](crop) [last Monday](sowing_date)
+      - The variety is [Pusa-Basmati-1509](seed_type) for [Rice](crop)
+      - I'm in [Nashik](district) where we have [Black](soil) soil
+      - The crop is [Urad](crop), season is [Kharif](season)
+      - Sowing date was [01/07/2025](s sowing_date) for [Cotton](crop)
+      - My state is [Bihar](state) and the district is [Patna](district)
+      - I have [Laterite](soil) soil for [Cashew](crop)
+      - Planting [Onion](crop) for the [Rabi](season)
+      - My seed is [Kalyan Sona](seed_type) and crop is [Wheat](crop)
+      - I live in [Ludhiana](district), which is in [Punjab](state)
+      - The season is [Zaid](season) and I planted [Cucumber](crop)
+      - Soil is [Saline](soil) in [Gujarat](state)
+      - Sowing was completed on [15/11/2025](sowing_date)
+      - [Tomato](crop) was planted [a week ago](sowing_date)
+      - We have [Alluvial](soil) soil in my district [Kanpur](district)
+      - It's [Maize](crop) for [Kharif](season)
+      - In [Rajasthan](state) we have mostly [Sandy](soil) soil
+      - I planted my crop [on the 1st of this month](sowing_date)
+      - [Rabi](season) has started in [Haryana](state)
+      - The soil is [Black](soil) in [Maharashtra](state)
+      - Sowing date was [October 28](sowing_date)
+      - We grow [Mustard](crop) in the [Rabi](season)
+      - I am from [Ahmedabad](district) in [Gujarat](state)
+      - The crop is [Jowar](crop) and the soil is [Red](soil)
+      - It's the [Kharif](season) in [Odisha](state)
+      - I used [Ankur-3028](seed_type) for [Cotton](crop)
+      - My district is [Hisar](district), my state is [Haryana](state)
+      - I planted [Wheat](crop) [last November](sowing_date)
+      - I grow [Soybean](crop) in [Loam](soil) soil
+      - This is for the [Zaid](season) crop of [Watermelon](crop)
+      - The location is [Jaipur](district), [Rajasthan](state)
+      - The seed is [Pioneer-45S46](seed_type) for [Mustard](crop)
+      - I sowed it on [1st Nov](sowing_date)
+      - My farm is in [Nagpur](district), which has [Black](soil) soil
+      - [Sugarcane](crop) planted in [February](sowing_date)
+      - I am in [Uttar Pradesh](state), the soil is [Alluvial](soil)
+      - It is [Rabi](season), I planted [Gram](crop)
+      - The date was [20-06-2025](sowing_date)
+      - It's [Bajra](crop) in [Sandy](soil)
+      - I'm in [Indore](district) and it's the [Rabi](season)
+      - The soil here is [Red](soil), good for [Groundnut](crop)
+      - My crop is [Wheat](crop), variety [Shriram-111](seed_type)
+      - We finished sowing on [December 2nd 2025](sowing_date)
+      - I am from [Bhopal](district) in [Madhya Pradesh](state)
+      - My crop is [Tur](crop), planted in [Kharif](season)
+      - The soil is [Clayey](soil), location is [Maharashtra](state)
+      - Sowing date for [Soybean](crop) was [June 25th](sowing_date)
+      - I'm in [Kanpur](district), we have [Loam](soil) here
+      - I planted [Wheat](crop) in [Loam](soil) soil in [Punjab](state)
+      - We grow [Rice](crop) during [Kharif](season) in [West Bengal](state)
+      - My crop is [Soybean](crop), I'm in [Indore](district), [Madhya Pradesh](state)
+      - I sowed [Maize](crop) on [July 10th](sowing_date) for the [Kharif](season)
+      - [Cotton](crop) is grown in [Black](soil) soil in [Gujarat](state)
+      - Using [HD-2967](seed_type) for [Wheat](crop) in the [Rabi](season)
+      - In [Jaipur](district), [Rajasthan](state), I planted [Mustard](crop)
+      - Sowed [Gram](crop) for [Rabi](season) on [November 1st](sowing_date)
+      - My soil is [Alluvial](soil) in [Lucknow](district) for my [Sugarcane](crop)
+      - It's [Jowar](crop) for the [Kharif](season) in [Maharashtra](state)
+      - I planted [Barley](crop) in [Haryana](state) on [October 30](sowing_date)
+      - My crop is [Groundnut](crop), soil is [Sandy](soil), state is [Gujarat](state)
+      - In [Karnataka](state), we plant [Millet](crop) in [Red](soil) soil
+      - For the [Zaid](season), I planted [Moong](crop) on [March 15th](sowing_date)
+      - The district is [Pune](district), the crop is [Sugarcane](crop), soil is [Black](soil)
+      - Information: [Paddy](crop), season [Kharif](season), state [Odisha](state)
+      - I have sown [Lentil](crop) in [Uttar Pradesh](state) for this [Rabi](season)
+      - My variety is [Pusa-Basmati-1509](seed_type) for [Rice](crop) in [Punjab](state)
+      - I'm from [Hisar](district), [Haryana](state) and I grow [Wheat](crop)
+      - Sowing of [Bajra](crop) was done in [July](sowing_date) in [Rajasthan](state)
+      - It's [Potato](crop) in [Loam](soil) soil, planted [last month](sowing_date)
+      - Crop [Onion](crop), Season [Rabi](season), District [Nashik](district)
+      - I used [JK-502](seed_type) for [Maize](crop) in [Bihar](state)
+      - I am in [Guntur](district), [Andhra Pradesh](state), cultivating [Chilli](crop)
+      - The sowing date was [2025-06-28](sowing_date) for [Soybean](crop) in [Madhya Pradesh](state)
+      - We grow [Cotton](crop) with [Ankur-3028](seed_type) seeds in [Black](soil) soil
+      - The farm is in [Ludhiana](district), crop is [Wheat](crop), season is [Rabi](season)
+      - I planted [Tur](crop) in [Clayey](soil) soil during [Kharif](season)
+      - In [Kanpur](district), [Uttar Pradesh](state), the main crop is [Wheat](crop)
+      - I have [Red](soil) soil in [Bengaluru](district) for my [Ragi](crop)
+      - Sowed [Mustard](crop) with [Pioneer-45S46](seed_type) on [October 20th](sowing_date)
+      - My crop is [Urad](crop), season is [Kharif](season), I am in [Maharashtra](state)
+      - It is [Jute](crop) in [Alluvial](soil) soil in [West Bengal](state)
+      - Planted [Tomato](crop) on [my farm in Nashik](district) [last week](sowing_date)
+      - My state is [Punjab](state), my crop is [Rice](crop), my seed is [PR-126](seed_type)
+      - I'm growing [Maize](crop) this [Kharif](season) in [Karnataka](state)
+      - Sowing date was [Nov 5, 2025](sowing_date) for [Gram](crop) in [Rajasthan](state)
+      - The soil is [Sandy](soil), crop is [Bajra](crop), district is [Bikaner](district)
+      - I'm in [Patna](district), [Bihar](state), and I planted [Lentil](crop)
+      - [Jowar](crop) was sown on [July 5](sowing_date) in [Black](soil) soil
+      - The crop is [Sugarcane](crop), planted in [February](sowing_date) in [Uttar Pradesh](state)
+      - In the [Zaid](season), I grow [Cucumber](crop) in [Loam](soil) soil
+      - My crop is [Wheat](crop), seed is [HD-2967](seed_type), location is [Haryana](state)
+      - I have [Soybean](crop) in [Loam](soil) soil in [Indore](district)
+      - Sowed [Cotton](crop) in [mid-June](sowing_date) in [Gujarat](state)
+      - Crop: [Groundnut](crop), Season: [Kharif](season), Soil: [Sandy](soil)
+      - I'm from [Nagpur](district), [Maharashtra](state) and I grow [Oranges](crop)
+      - It's [Barley](crop) for the [Rabi](season) in [Rajasthan](state)
+      - I planted [Onion](crop) on [November 12](sowing_date) in [Nashik](district)
+      - We have [Red](soil) soil, suitable for [Millet](crop) in [Andhra Pradesh](state)
+      - Using [Kalyan Sona](seed_type) variety for [Wheat](crop) in [Punjab](state)
+      - In [Latur](district), we grow [Tur](crop) in the [Kharif](season)
+      - I sowed [Mustard](crop) on [25/10/2025](sowing_date) in [Hisar](district)
+      - The state is [West Bengal](state), soil is [Alluvial](soil), crop is [Rice](crop)
+      - I'm in [Bhopal](district) and I planted [Gram](crop) for the [Rabi](season)
+      - It is [Maize](crop) of [DEKALB-900M](seed_type) variety, sown in [July](sowing_date)
+      - I will sow [Wheat](crop) in [Jaipur](district), [Rajasthan](state) for [Rabi](season) on [2025-12-01](sowing_date)
+      - I have planted [Maize](crop) of [JK-502](seed_type) variety in [Red](soil) soil around [15th July 2025](sowing_date)
+      - For the [Kharif](season), I'm thinking of [Paddy](crop) in [Alluvial](soil) soil in [Lucknow](district), [Uttar Pradesh](state)
+      - We finished sowing [Barley](crop) on [25/10/2025](sowing_date) in [Ludhiana](district), [Punjab](state)
+      - My crop is [Soybean](crop), sown on [June 30, 2025](sowing_date) in [Black](soil) soil in [Indore](district)
+      - I am growing [Cotton](crop) of [RCH-659](seed_type) variety for this [Kharif](season) in [Gujarat](state)
+      - In [Hisar](district), [Haryana](state), I planted [Mustard](crop) for the [Rabi](season) [last week](sowing_date)
+      - The details are: crop [Gram](crop), district [Bhopal](district), soil [Black](soil), season [Rabi](season)
+      - I have [Sugarcane](crop) planted in [Clayey](soil) soil in [Pune](district), [Maharashtra](state) since [January](sowing_date)
+      - We used [HD-2967](seed_type) for [Wheat](crop) in [Loam](soil) soil in [Punjab](state) this [Rabi](season)
+      - I'm planning to sow [Lentil](crop) in [Patna](district), [Bihar](state) for the [Rabi](season) around [November 10th](sowing_date)
+      - The crop is [Groundnut](crop), planted in [Sandy](soil) soil during the [Kharif](season) in [Ahmedabad](district), [Gujarat](state)
+      - I have [Jowar](crop) growing in [Red](soil) soil in [Karnataka](state), which was sown on [July 8th](sowing_date)
+      - My farm in [Nashik](district), [Maharashtra](state) has [Black](soil) soil where I've planted [Onion](crop) for the [Rabi](season)
+      - [Bajra](crop) was sown in [mid-July](sowing_date) in [Sandy](soil) soil in [Bikaner](district), [Rajasthan](state)
+      - For the [Zaid](season), I am planting [Watermelon](crop) in [Alluvial](soil) soil in [Kanpur](district), [Uttar Pradesh](state)
+      - It's [Rice](crop), variety [Pusa-Basmati-1509](seed_type), planted in [Kharif](season) in [Karnal](district), [Haryana](state)
+      - My crop is [Tur](crop), planted on [July 1st](sowing_date) for the [Kharif](season) in [Latur](district), [Maharashtra](state)
+      - I sowed [Potato](crop) in [Loam](soil) soil in [Farrukhabad](district), [Uttar Pradesh](state) on [October 25th](sowing_date)
+      - It's [Wheat](crop) of [PBW-343](seed_type) variety, sown in [Rabi](season) in [Ludhiana](district), [Punjab](state)
+      - We cultivate [Soybean](crop) in [Black](soil) soil in [Ujjain](district), [Madhya Pradesh](state) during the [Kharif](season)
+      - The crop is [Maize](crop), variety [DEKALB-900M](seed_type), planted on [July 5th](sowing_date) in [Alluvial](soil) soil in [Bihar](state)
+      - I have [Mustard](crop) of [Pioneer-45S46](seed_type) variety in [Sandy](soil) soil in [Jaipur](district) for this [Rabi](season)
+      - We planted [Cotton](crop) in [Black](soil) soil on [June 20th](sowing_date) in [Akola](district), [Maharashtra](state)
+      - The information is: [Gram](crop), [Rabi](season), [November 8th](sowing_date), [Bhopal](district), [Madhya Pradesh](state)
+      - I will plant [Moong](crop) for [Zaid](season) in [Loam](soil) soil in [Hisar](district) [next March](sowing_date)
+      - It's [Barley](crop), sown on [30/10/2025](sowing_date) in [Rabi](season) in [Jaipur](district), [Rajasthan](state)
+      - My crop is [Rice](crop) in [Alluvial](soil), season is [Kharif](season), state is [Uttar Pradesh](state), district is [Gorakhpur](district)
+      - I have planted [Sugarcane](crop) in [Clayey](soil) soil in [Kolhapur](district), [Maharashtra](state) on [Jan 15th](sowing_date)
+      - This [Rabi](season), I'm growing [Wheat](crop) of [Kalyan Sona](seed_type) variety in [Loam](soil) soil in [Ludhiana](district)
+      - In [Guntur](district), [Andhra Pradesh](state), I planted [Chilli](crop) in [Red](soil) soil [last month](sowing_date)
+      - The crop is [Soybean](crop), seed is [JS-9560](seed_type), sown on [25/06/2025](sowing_date) in [Indore](district), [Madhya Pradesh](state)
+      - My details: [Wheat](crop), [Rabi](season), [2025-11-10](sowing_date), [Loam](soil), [Hisar](district), [Haryana](state)
+      - Okay, the crop is [Wheat](crop)
+      - Well, my farm is in [Punjab](state)
+      - Let's see... the soil is [Black](soil)
+      - The seed variety I used was [PBW-343](seed_type)
+      - We just finished sowing [Rice](crop)
+      - Actually, I am from [Pune](district) in [Maharashtra](state)
+      - It's for the current [Rabi](season)
+      - The date was [around November 15th](sowing_date)
+      - I'm providing details for my [Maize](crop)
+      - The location is [Indore](district)
+      - Here in [Haryana](state), we are preparing for the [Rabi](season)
+      - My soil is mostly [Sandy](soil) and I planted [Millet](crop)
+      - I think the sowing date was [July 2nd or 3rd](sowing_date)
+      - I have a field in [Uttar Pradesh](state) with [Alluvial](soil) soil
+      - Yes, I can confirm the crop is [Cotton](crop)
+      - The district is [Ludhiana](district) and the season is [Rabi](season)
+      - I grow [Soybean](crop), and I am from [Madhya Pradesh](state)
+      - Sowing was completed for [Gram](crop) [about two weeks ago](sowing_date)
+      - You can put down [Loam](soil) for the soil type
+      - The variety is [Pusa-Basmati-1509](seed_type) for my [Paddy](crop)
+      - I am cultivating [Sugarcane](crop) in the [Kharif](season)
+      - My state is [Gujarat](state) and I grow [Groundnut](crop)
+      - We planted them on [June 25, 2025](sowing_date)
+      - It's [Red](soil) soil where I planted [Jowar](crop)
+      - The crop is [Wheat](crop) and the seed is [HD-2967](seed_type)
+      - I live in [Bhopal](district) where it's the [Rabi](season) now
+      - The crop is [Mustard](crop), and the sowing was done in [late October](sowing_date)
+      - In my area, [Jaipur](district), we grow [Barley](crop)
+      - The information is for [Maize](crop) in the [Kharif](season) in [Bihar](state)
+      - We have [Black](soil) soil here in [Nagpur](district), [Maharashtra](state)
+      - My crop is [Lentil](crop), I am in [Uttar Pradesh](state), and the season is [Rabi](season)
+      - The planting happened [around the 1st of July](sowing_date) for my [Cotton](crop)
+      - I have [Clayey](soil) soil, and I'm planning to plant [Sugarcane](crop)
+      - For this [Zaid](season), I have planted [Cucumber](crop) and [Watermelon](crop)
+      - My district is [Nashik](district), I have planted [Grapes](crop)
+      - So, the state is [Karnataka](state) and the district is [Belagavi](district)
+      - Yes, the soil is [Alluvial](soil), crop is [Rice](crop), season [Kharif](season)
+      - The date of sowing was [November 20th 2025](sowing_date) in [Hisar](district) for [Wheat](crop)
+      - My farm is in [Indore](district), [Madhya Pradesh](state), where I have [Soybean](crop) in [Black](soil) soil
+
+
+# help the model spot dates
+regex:
+  - name: sowing_date
+    pattern: "(?:\\d{4}[-/\\.]\\d{2}[-/\\.]\\d{2}|\\d{2}[-/\\.]\\d{2}[-/\\.]\\d{4})"
+
+lookup:
+  - name: crop
+    examples: |
+      - Wheat
+      - Rice
+      - Maize
+      - Soybean
+      - Cotton
+  - name: season
+    examples: |
+      - Kharif
+      - Rabi
+      - Zaid
+  - name: soil
+    examples: |
+      - Black
+      - Loam
+      - Sandy
+      - Clay
+      - Alluvial

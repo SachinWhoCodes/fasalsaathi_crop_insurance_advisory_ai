@@ -1,0 +1,20 @@
+version: "3.1"
+
+language: en
+recipe: default.v1
+
+pipeline:
+- name: WhitespaceTokenizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+- name: DIETClassifier
+  epochs: 40
+- name: EntitySynonymMapper
+- name: RegexEntityExtractor
+  use_lookup_tables: true
+  use_regexes: true
+
+policies:
+- name: RulePolicy
+assistant_id: 20251011-155323-alternating-class
